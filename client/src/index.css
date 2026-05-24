@@ -1,0 +1,574 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   DESIGN THEME: "Premium Light Professional"
+   Milano — Comércio, Importação e Exportação de Matérias Primas
+   
+   Philosophy: Premium B2B Corporate — light clean base, gold accents,
+   condensed bold typography for maximum authority and trust.
+   
+   Colors:
+   - Background: #F8F9FB (light blue-white)
+   - Primary: #1A2A4E (dark blue professional)
+   - Gold accent: #D4A017 (premium gold)
+   - Text: #1A2A4E (dark blue)
+   - Text secondary: #5A7BA8 (medium blue)
+   - Cards: #FFFFFF (white)
+   - Border: #E8EDF5 (light blue)
+   
+   Typography:
+   - Display: Bebas Neue (impact headlines)
+   - Subtitles: Barlow Condensed SemiBold
+   - Body: Inter (readability)
+   ============================================================ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom Milano colors - Premium Light */
+  --color-navy: #F8F9FB;
+  --color-navy-light: #FFFFFF;
+  --color-navy-mid: #F0F4FA;
+  --color-gold: #D4A017;
+  --color-gold-light: #F0C040;
+  --color-blue-royal: #1A2A4E;
+  --color-text-primary: #1A2A4E;
+  --color-text-secondary: #5A7BA8;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.98 0.005 240);
+  --foreground: oklch(0.15 0.03 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.03 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.03 240);
+  --primary: oklch(0.35 0.12 240);
+  --primary-foreground: oklch(0.98 0.005 240);
+  --secondary: oklch(0.92 0.01 240);
+  --secondary-foreground: oklch(0.25 0.05 240);
+  --muted: oklch(0.88 0.008 240);
+  --muted-foreground: oklch(0.4 0.05 240);
+  --accent: oklch(0.65 0.15 75);
+  --accent-foreground: oklch(0.15 0.03 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.008 240);
+  --input: oklch(0.95 0.005 240);
+  --ring: oklch(0.35 0.12 240);
+  --chart-1: oklch(0.65 0.15 75);
+  --chart-2: oklch(0.45 0.18 255);
+  --chart-3: oklch(0.55 0.15 200);
+  --chart-4: oklch(0.7 0.12 150);
+  --chart-5: oklch(0.6 0.18 30);
+  --sidebar: oklch(0.1 0.025 240);
+  --sidebar-foreground: oklch(0.95 0.01 240);
+  --sidebar-primary: oklch(0.45 0.18 255);
+  --sidebar-primary-foreground: oklch(0.98 0.005 240);
+  --sidebar-accent: oklch(0.15 0.03 240);
+  --sidebar-accent-foreground: oklch(0.85 0.01 240);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.45 0.18 255);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: #0A1628;
+    color: #F0F4FF;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  /* Milano custom utilities */
+  .gold-text {
+    color: #D4A017;
+  }
+  
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #D4A017 0%, #F0C040 50%, #D4A017 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .navy-card {
+    background-color: #132040;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .gold-border-left {
+    border-left: 3px solid #D4A017;
+  }
+  
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D4A017, transparent);
+    opacity: 0.4;
+  }
+  
+  .btn-gold {
+    background: linear-gradient(135deg, #D4A017, #F0C040);
+    color: #0A1628;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-gold:hover {
+    background: linear-gradient(135deg, #F0C040, #D4A017);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(212, 160, 23, 0.4) !important;
+  }
+  
+  .btn-gold:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+  
+  @media (max-width: 640px) {
+    .btn-gold {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+  }
+  
+  .btn-outline-gold {
+    border: 1px solid #D4A017;
+    color: #D4A017;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-outline-gold:hover {
+    background: rgba(212, 160, 23, 0.1);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 25px rgba(212, 160, 23, 0.4) !important;
+    border-color: rgba(212, 160, 23, 1);
+  }
+  
+  .btn-outline-gold:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+  
+  @media (max-width: 640px) {
+    .btn-outline-gold {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+  }
+  
+  .glow-blue {
+    box-shadow: 0 0 30px rgba(30, 58, 138, 0.4);
+  }
+  
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(212, 160, 23, 0.5) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 160, 23, 0.3);
+  }
+  
+  @media (max-width: 640px) {
+    .card-hover:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+  }
+  
+  /* Dots pattern from logo */
+  .dots-pattern {
+    background-image: radial-gradient(circle, rgba(212, 160, 23, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  /* Noise texture overlay */
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.03;
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A1628;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E3A8A;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4A017;
+  }
+}
+
+/* Keyframe animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(212, 160, 23, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes counter-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate-dots {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-light {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(212, 160, 23, 0.3), inset 0 0 10px rgba(212, 160, 23, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 160, 23, 0.6), inset 0 0 20px rgba(212, 160, 23, 0.2);
+  }
+}
+
+@keyframes parallax-slow {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(20px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-bounce-light {
+  animation: bounce-light 2s ease-in-out infinite;
+}
+
+/* Scroll-based animations */
+@keyframes scroll-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scroll-rotate-in {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.animate-scroll-fade-in {
+  animation: scroll-fade-in 0.8s ease-out forwards;
+}
+
+.animate-scroll-slide-left {
+  animation: scroll-slide-left 0.8s ease-out forwards;
+}
+
+.animate-scroll-slide-right {
+  animation: scroll-slide-right 0.8s ease-out forwards;
+}
+
+.animate-scroll-scale-up {
+  animation: scroll-scale-up 0.8s ease-out forwards;
+}
+
+.animate-scroll-rotate-in {
+  animation: scroll-rotate-in 0.8s ease-out forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 160, 23, 0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ============================================================
+   MOBILE MENU SCROLL FIX — Critical corrections
+   Permite scroll interno no menu mobile sem travar
+   ============================================================ */
+
+/* Aplicar a todos os containers de menu/drawer/nav */
+.menu-mobile,
+.drawer,
+.mobile-nav {
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+}
+
+/* Especificamente para o menu mobile do Navbar - fixed elements */
+.fixed.top-0.left-0.right-0.z-40,
+.fixed.top-0.left-0.z-40,
+.fixed.inset-0.z-40 {
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  position: fixed !important;
+}
+
+/* Garantir que o body permite scroll quando menu aberto */
+body {
+  overflow: auto !important;
+  position: relative !important;
+}
+
+/* Remover position:fixed do body que pode estar travando */
+body.menu-open {
+  overflow: auto !important;
+  position: relative !important;
+}
+
+/* Scrollbar customizada para o menu mobile */
+.fixed.top-0.left-0.right-0.z-40::-webkit-scrollbar,
+.fixed.top-0.left-0.z-40::-webkit-scrollbar,
+.fixed.inset-0.z-40::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fixed.top-0.left-0.right-0.z-40::-webkit-scrollbar-track,
+.fixed.top-0.left-0.z-40::-webkit-scrollbar-track,
+.fixed.inset-0.z-40::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.fixed.top-0.left-0.right-0.z-40::-webkit-scrollbar-thumb,
+.fixed.top-0.left-0.z-40::-webkit-scrollbar-thumb,
+.fixed.inset-0.z-40::-webkit-scrollbar-thumb {
+  background: #D4A017;
+  border-radius: 3px;
+}
+
+.fixed.top-0.left-0.right-0.z-40::-webkit-scrollbar-thumb:hover,
+.fixed.top-0.left-0.z-40::-webkit-scrollbar-thumb:hover,
+.fixed.inset-0.z-40::-webkit-scrollbar-thumb:hover {
+  background: #F0C040;
+}
+
+/* Remover qualquer preventDefault em touchmove */
+.fixed.top-0.left-0.right-0.z-40 * {
+  touch-action: auto !important;
+}

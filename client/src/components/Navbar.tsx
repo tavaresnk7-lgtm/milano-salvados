@@ -12,13 +12,13 @@ import { Menu, X, Phone, Mail } from "lucide-react";
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663560507260/VsMorVZjdUVt3j5Mu6hb2N/logo_9d96391c.webp";
 
 const navLinks = [
-  { label: "Início", href: "#inicio" },
-  { label: "Sobre Nós", href: "/sobre" },
-  { label: "Produtos", href: "#produtos" },
-  { label: "Como Funciona", href: "#como-funciona" },
-  { label: "Licenças", href: "#licencas" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contato", href: "#contato" },
+ { label: "Início", href: "/" },
+{ label: "Sobre Nós", href: "/sobre" },
+{ label: "Produtos", href: "/#produtos" },
+{ label: "Como Funciona", href: "/#como-funciona" },
+{ label: "Licenças", href: "/#licencas" },
+{ label: "FAQ", href: "/#faq" },
+{ label: "Contato", href: "/#contato" },
 ];
 
 export default function Navbar() {
@@ -38,12 +38,23 @@ export default function Navbar() {
     document.body.style.position = "relative";
     document.documentElement.style.overflow = "auto";
     
-    if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = href;
-    }
+    if (href.includes("#")) {
+      const sectionId = href.split("#")[1];
+
+if (window.location.pathname !== "/") {
+  sessionStorage.setItem("scrollTo", sectionId);
+  window.location.href = "/";
+  return;
+}
+
+const el = document.getElementById(sectionId);
+
+if (el) {
+  el.scrollIntoView({ behavior: "smooth" });
+}
+} else {
+  window.location.href = href;
+}
   };
 
   return (
@@ -202,12 +213,14 @@ export default function Navbar() {
               WebkitOverflowScrolling: "touch", 
               touchAction: "pan-y",
               overscrollBehavior: "contain",
+              overflowY: "auto",
+
               maxHeight: "100dvh",
               height: "100dvh"
             }}
           >
             <motion.div 
-              className="container py-6 flex flex-col gap-2"
+              className="container pt-20 pb-6 flex flex-col gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.3 }}

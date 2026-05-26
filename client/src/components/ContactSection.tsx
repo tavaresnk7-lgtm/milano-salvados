@@ -199,7 +199,7 @@ export default function ContactSection() {
               style={{ height: "200px", border: "1px solid rgba(255,255,255,0.08)" }}
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.6333!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjgiUyA0NsKwMzcnNTkuOSJX!5e0!3m2!1spt!2sbr!4v1620000000000"
+                src="https://www.google.com/maps?q=Rua+Feita,+651,+Suzano,+SP&output=embed"
                 width="100%"
                 height="200"
                 style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
@@ -209,7 +209,7 @@ export default function ContactSection() {
               />
               <div className="absolute top-2 left-2 z-10">
                 <a
-                  href="https://maps.app.goo.gl/WnvVKaSUfCfZrK149"
+                  href="https://www.google.com/maps/search/?api=1&query=Rua+Feita,+651,+Suzano,+SP"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-3 py-2 rounded-sm text-xs font-semibold transition-all"

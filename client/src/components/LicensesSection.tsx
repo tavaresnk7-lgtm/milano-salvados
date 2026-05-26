@@ -47,7 +47,7 @@ export default function LicensesSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="licencas" className="relative py-20 md:py-28 overflow-hidden" style={{ backgroundColor: "#F0F4FA" }}>
+    <section id="licencas" className="relative py-10 md:py-24 overflow-hidden" style={{ backgroundColor: "#F0F4FA" }}>
       <div className="section-divider" />
 
       <div className="container" ref={ref}>
@@ -204,11 +204,11 @@ export default function LicensesSection() {
           >
             CERTIFICAÇÕES E AUTORIZAÇÕES
           </h3>
-          <div className="flex justify-center">
+          <div className="w-full flex justify-center px-4 md:px-10">
             <motion.img
-              src="https://i.imgur.com/BObvnuv.png"
+              src="/licenças.png"
               alt="Certificações e Autorizações Milano"
-              className="w-full max-w-7xl h-auto rounded-sm"
+              className="w-full max-w-full md:max-w-5xl h-auto rounded-2xl"
               style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.4))", minHeight: "300px" }}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}

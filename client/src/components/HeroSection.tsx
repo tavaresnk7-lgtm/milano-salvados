@@ -33,6 +33,21 @@ const stats = [
 ];
 
 export default function HeroSection() {
+    useEffect(() => {
+    const sectionId = sessionStorage.getItem("scrollTo");
+
+    if (sectionId) {
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+
+        sessionStorage.removeItem("scrollTo");
+      }, 300);
+    }
+  }, []);
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
 

@@ -6,6 +6,7 @@
  */
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Navbar from "../components/Navbar";
 import { Target, Eye, Heart, Zap, Users, Award, Beaker, Shirt, Paintbrush, Sparkles } from "lucide-react";
 
 export default function About() {
@@ -102,6 +103,8 @@ export default function About() {
   };
 
   return (
+    <>
+  <Navbar />
     <div className="min-h-screen" style={{ backgroundColor: "#F8F9FB" }}>
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
@@ -564,5 +567,6 @@ export default function About() {
         </div>
       </section>
     </div>
+    </>
   );
 }

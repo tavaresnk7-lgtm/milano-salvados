@@ -216,7 +216,7 @@ export default function Footer() {
               className="text-xs"
               style={{ color: "#5A7BA8", fontFamily: "'Inter', sans-serif" }}
             >
-              CNPJ: 00.000.000/0001-00
+              CNPJ: 58.748.245/0001-81
             </span>
             <button
               onClick={scrollToTop}
